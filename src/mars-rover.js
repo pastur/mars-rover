@@ -22,13 +22,6 @@ const commands = {
 
 const unknownCommand = () => console.log("unknown command")
 
-function getDirectionIndex (direction) {
-  for (var i = 0; i < directions.length; i++) {
-    if (direction === directions[i]) { return i }
-  }
-  return 0
-}
-
 function leftHandler (state) {
   turn(state, toLeft)
 }
@@ -38,7 +31,7 @@ function rightHandler (state) {
 }
 
 function turn(state, toDirection) {
-  const currentIndex = getDirectionIndex(state.direction)
+  const currentIndex = directions.indexOf(state.direction)
   const newIndex = toDirection(currentIndex)
   state.direction = directions[newIndex]
 }
